@@ -12,7 +12,7 @@ class Program
         job1.end_year = 2024;
 
         Job job2 = new Job();
-        job2.company = "Microssoft";
+        job2.company = " Microssoft";
         job2.job_title = "Software engineering";
         job2.start_year = 2017;
         job2.end_year = 2020;

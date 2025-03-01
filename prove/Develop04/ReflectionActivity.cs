@@ -1,7 +1,7 @@
 using System;
 public class ReflectionActivity : Activity{
 
-   public ReflectionActivity() : base ("Reflection Activity", "This activity will help you to reflect on your day: "){
+   public ReflectionActivity() : base ("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life"){
    }
 
    public void interactReflection(){
@@ -39,8 +39,9 @@ public class ReflectionActivity : Activity{
         {
             break;
         }
-        Console.WriteLine(question);
-        Console.ReadLine(); 
+        Console.WriteLine(question) ;
+        Console.WriteLine("");
+        Thread.Sleep(5000);
     }
       
    }

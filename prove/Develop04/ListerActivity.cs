@@ -29,7 +29,12 @@ public class ListerActivity : Activity{
             }
       
    }
-
+   Console.WriteLine($"Thank you for your responses, you listed {responses.Count} items");
+   Console.WriteLine("Your responses: ");
+   foreach(string response in responses)
+   {
+      Console.WriteLine(response);
+   }
    base.InteractEpilogue();
 }
 }

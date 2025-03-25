@@ -5,30 +5,17 @@ public class Course {
     private Professor _professor;
     private List<Student> _studentsEnrolled;
 
-    private List<Assignment> _assignments;
-
     public Course(string name, string code, Professor p){
         _courseName = name;
         _courseCode = code;
         _professor = p;
         _studentsEnrolled = new List<Student>();
-        _assignments = new List<Assignment>();
     }
-
-    public void AddAssignment(Assignment a){
-        _assignments.Add(a);
-        Console.WriteLine($"Assignment {a.GetTitle()} added to {_courseName}");
-    }
-
-    public List<Assignment> GetAssignments(){
-        return _assignments;
-    }
-
     public void AddStudent(Student s){
 
         if (!_studentsEnrolled.Contains(s)){
-            _studentsEnrolled.Add(s);
-            s.EnrollInCourse(this);
+            _studentsEnrolled.Add(s);;
+            Console.WriteLine($"Student {s.GetName()} has been enrolled in {GetCourseName()}");
         }
         else {
             Console.WriteLine("Student is already enrolled in this course!");
@@ -58,6 +45,7 @@ public class Course {
         return new List<Student>(_studentsEnrolled);
     }
 
+
     public string GetCourseCode(){
         return _courseCode;
     }
@@ -68,6 +56,10 @@ public class Course {
 
     public virtual void DisplayInfo(Course c){
         
+    }
+
+    public string GetProfessorName(){
+        return _professor.GetName();
     }
 
 

@@ -2,9 +2,9 @@ public class Assignment {
     private string _title;
     private string _description;
 
-    private DateTime _dueDate;
+    private DateOnly _dueDate;
 
-    public Assignment(string t, string d, DateTime date){
+    public Assignment(string t, string d, DateOnly date){
         _title = t;
 
         _description = d;
@@ -12,7 +12,7 @@ public class Assignment {
         _dueDate = date;
     }
 
-    public void Submit(Student student){
+    public virtual void Submit(Student student){
         Console.WriteLine($"{student.GetName()} submitted {_title}");
     }
 
@@ -24,7 +24,7 @@ public class Assignment {
         return _description;
     }
 
-    public DateTime GetDueDate(){
+    public DateOnly GetDueDate(){
         return _dueDate;
     }
 

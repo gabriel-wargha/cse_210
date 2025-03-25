@@ -62,5 +62,13 @@ public class Course {
         return _courseCode;
     }
 
+    public String GetCourseName(){
+        return _courseName;
+    }
+
+    public virtual void DisplayInfo(Course c){
+        
+    }
+
 
 }

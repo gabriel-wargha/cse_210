@@ -26,4 +26,10 @@ public class Student : User {
             c.RemoveStudent(this);
         }
     }
+
+    public List<Course> GetCourses(){
+
+        return _enrolledCourses;
+
+    }
 }

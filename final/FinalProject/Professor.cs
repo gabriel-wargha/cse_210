@@ -20,11 +20,15 @@ public class Professor : User {
     }
     public void RemoveCourse(Course c){
         if(_coursesTaught.Contains(c)){
-            foreach (Student s in c.GetStudents())
+
+            List<Student> studentsToRemove = new List<Student>(c.GetStudents());
+
+            foreach (Student s in studentsToRemove)
             {
                 s.DropCourse(c);
             }
             _coursesTaught.Remove(c);
+            Console.WriteLine($"Course {c.GetCourseCode} removed successfully!");
         }
         else {
             Console.WriteLine("You are not teaching this Course");

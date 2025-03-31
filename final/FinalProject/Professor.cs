@@ -1,3 +1,5 @@
+using System.Formats.Asn1;
+
 public class Professor : User {
     private string _professorID;
 
@@ -13,23 +15,52 @@ public class Professor : User {
     }
 
         public void CreateCourse(List<Course> availableCourses){
+    Console.WriteLine("Whats the name of the course that you want to add: ");
+    string name = Console.ReadLine();
 
-            Console.WriteLine("Whats the name of the course that you want to add: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("What is the course code of the new Course: ");
-            string code = Console.ReadLine();
+    Console.WriteLine("What is the course code of the new Course: ");
+    string code = Console.ReadLine();
 
-            Course newCourse = new Course(name, code, this);
+    Console.WriteLine("Type 1 for a new online Course and 2 for a In person course");
+    string option = Console.ReadLine();
 
-        if(!_coursesTaught.Contains(newCourse)){
-            availableCourses.Add(newCourse);
-            _coursesTaught.Add(newCourse);
-        }
-        else
-        {
-            Console.WriteLine("This course already exists");
-        }
-        }
+    Course newCourse = null;
+
+    if(option == "1"){
+        Console.WriteLine("What is the website: ");
+        string website = Console.ReadLine();
+
+        Console.WriteLine("What is the zoom link: ");
+        string link = Console.ReadLine();
+
+        newCourse = new OnlineCourse(name, code, this, website, link);
+    }
+    else if(option == "2"){
+        Console.WriteLine("What is the building: ");
+        string building = Console.ReadLine();
+
+        Console.WriteLine("What is the room: ");
+        string room = Console.ReadLine();
+
+        newCourse = new InPersonCourse(name, code, this, building, room);
+    }
+    else {
+        Console.WriteLine("Invalid Option");
+        return;
+    }
+
+    if (!_coursesTaught.Contains(newCourse)){
+        _coursesTaught.Add(newCourse);
+        availableCourses.Add(newCourse);
+        Console.WriteLine("Course created successfully!");
+    }
+    else {
+        Console.WriteLine("This course already exists");
+    }
+}
+
+
+            
     public void RemoveCourse(Course c){
         if(_coursesTaught.Contains(c)){
 
@@ -183,5 +214,4 @@ public void GradeStudent(){
     }
 }
 
-}
 

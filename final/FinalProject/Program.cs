@@ -75,7 +75,7 @@ public class Program {
         students.Add(student);
         Console.WriteLine($"New Student created successfully!Your I Number is {iNumber}\nPress any key to return to the menu...");
         Console.ReadKey();
-        Console.ReadLine();
+        Console.Clear();
     }
 
     public static void CreateNewProfessor(){
@@ -98,7 +98,7 @@ public class Program {
 
         Console.WriteLine($"New Professor created successfully! Your id is {idProfessor}\nPress any key to return to the menu...");
         Console.ReadKey();
-        Console.ReadLine();
+        Console.Clear();
     }
 
     public static void loginAsProfessor(){
@@ -125,7 +125,7 @@ public class Program {
         }
         Console.WriteLine("Too many failed attempts. Exiting...");
         }
-
+        Console.Clear();
     }
 
     public static void loginAsStudent(){
@@ -154,6 +154,7 @@ public class Program {
         }
         Console.WriteLine("Too many failed attempts. Exiting...");
         }
+        Console.Clear();
 
     }
 

@@ -22,6 +22,7 @@ public class Program {
             Console.WriteLine("5 Exit");
             Console.WriteLine("Choose an option");
             string answer = Console.ReadLine();
+            Console.Clear();
 
             switch (answer)
             {
@@ -45,7 +46,7 @@ public class Program {
                 
                 case "5":
                     Console.WriteLine("Goodbye!");
-                    break;
+                    return;
                 
                 default:
                     Console.WriteLine("Invalid option, please try again");

@@ -7,6 +7,7 @@ public class StudentMenu {
         Console.WriteLine("2. Enroll in a course");
         Console.WriteLine("3. See my grades");
         Console.WriteLine("4. Exit");
+        Console.Clear();
 
         
         string Choice = Console.ReadLine();

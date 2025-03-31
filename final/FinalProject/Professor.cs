@@ -139,7 +139,7 @@ public void GradeStudent(){
 
     for(int i = 0; i<_coursesTaught.Count;i++)
     {
-        Console.WriteLine($"{i+1} {_coursesTaught[i]}");
+        Console.WriteLine($"{i+1} {_coursesTaught[i].GetCourseName()} {_coursesTaught[i].GetCourseCode()}");
     }
     string input = Console.ReadLine();
 
@@ -147,6 +147,8 @@ public void GradeStudent(){
     {
         Course selectedCourse = _coursesTaught[CourseIndex - 1];
         List<Student> students = selectedCourse.GetStudents();
+
+        if(students.Count > 0){
 
         for(int i = 0; i<students.Count;i++)
         {
@@ -168,6 +170,10 @@ public void GradeStudent(){
         }
         else {
             Console.WriteLine("Invalid Student");
+        }
+        }
+        else {
+            Console.WriteLine("This class doesn't have any students");
         }
 
     }

@@ -69,7 +69,7 @@ public class Program {
         Console.WriteLine("Create your password");
         string password = Console.ReadLine();
 
-        Student student = new Student(name, password, new List<Course>(), email, iNumber);
+        Student student = new Student(iNumber, password, new List<Course>(), name, email);
 
         students.Add(student);
         Console.WriteLine($"New Student created successfully!Your I Number is {iNumber}\nPress any key to return to the menu...");
@@ -90,7 +90,7 @@ public class Program {
         Random r = new Random();
         string idProfessor = r.Next(100, 999).ToString();
 
-        Professor professor = new Professor(name,password, new List<Course>(), email, idProfessor);
+        Professor professor = new Professor(idProfessor, password, new List<Course>(), name, email);
 
         professors.Add(professor);
 
@@ -137,6 +137,8 @@ public class Program {
 
         //Search by ID
         Student student = students.FirstOrDefault(s => s.GetINumber() == id);
+        Console.WriteLine(id);
+        Console.WriteLine(student.GetPassword());
 
         if(student != null && student.GetPassword() == password){
             Console.WriteLine($"Welcome student {student.GetName()}");

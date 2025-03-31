@@ -1,4 +1,5 @@
 using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 public class Student : User {
     private string _studentID;
@@ -49,13 +50,13 @@ public class Student : User {
         Console.WriteLine("Choose the Course that you want to enroll in: ");
         string input = Console.ReadLine();
         
-       if(int.TryParse(input, out int courseIndex) && courseIndex > 0 && courseIndex < availableCourses.Count){
+       if(int.TryParse(input, out int courseIndex) && courseIndex > 0 && courseIndex <= availableCourses.Count){
         Course selectedCourse = availableCourses[courseIndex - 1];
 
         if(_enrolledCourses.Contains(selectedCourse)){
             Console.WriteLine("You are already enrolled in this course");
         } else {
-            _enrolledCourses.Add(selectedCourse);
+            selectedCourse.AddStudent(this);
             Console.WriteLine($"You are successfully enrolled in {selectedCourse.GetCourseName()}");
         }
        }
@@ -122,5 +123,20 @@ public static Student FindStudentByID(string id){
             Console.WriteLine($"{entry.Key.GetCourseName()}: {entry.Value} ");
         }
     }
+
      
-}}
+}
+
+public void ForceAddCourse(Course c){
+    if(!_enrolledCourses.Contains(c)){
+        _enrolledCourses.Add(c);
+    }
+}
+
+public void InitializeGrade(Course course){
+    if(!_grades.ContainsKey(course)){
+        _grades.Add(course, "Not graded yet");
+    }
+}
+
+}

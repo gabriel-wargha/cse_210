@@ -5,7 +5,7 @@ using System.Reflection;
 
 public class Program {
 
-    static List<Course> availableCourses;
+    static List<Course> availableCourses = new List<Course>(); 
     static List<Professor> professors = new List<Professor>();
     static List<Student> students = new List<Student>();
 

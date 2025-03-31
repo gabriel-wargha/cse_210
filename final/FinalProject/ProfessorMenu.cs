@@ -4,11 +4,10 @@ public class ProfessorMenu {
 
         while(true){
         Console.WriteLine("1. View Curses");
-        Console.WriteLine("2.Add a student to your class");
-        Console.WriteLine("3. View List of students in the course");
-        Console.WriteLine("4. Grade student");
-        Console.WriteLine("5. Create Course");
-        Console.WriteLine("6. Exit");
+        Console.WriteLine("2. View List of students in the course");
+        Console.WriteLine("3. Grade student");
+        Console.WriteLine("4. Create Course");
+        Console.WriteLine("5. Exit");
 
         
         string Choice = Console.ReadLine();
@@ -19,23 +18,19 @@ public class ProfessorMenu {
             break;
 
             case "2":
-            professor.AddStudentToClass();
-            break;
-
-            case "3":
             professor.ViewStudentsInCourse();
             break;
 
-            case "4":
+            case "3":
             professor.GradeStudent();
             
             break;
-            case "5":
-            professor.CreateCourse();
+            case "4":
+            professor.CreateCourse(availableCourses);
             
             break;
 
-            case "6":
+            case "5":
             Console.WriteLine("Goodbye!");
             return;
             
@@ -43,6 +38,7 @@ public class ProfessorMenu {
             Console.WriteLine("Invalid option, try again");
             break;
         }
+        Console.WriteLine("");
         }
 
     }

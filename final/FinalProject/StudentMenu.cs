@@ -30,6 +30,7 @@ public class StudentMenu {
             Console.WriteLine("Invalid option, try again");
             break;
         }
+        Console.WriteLine("");
         }
 
     }

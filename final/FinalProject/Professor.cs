@@ -12,7 +12,7 @@ public class Professor : User {
         _coursesTaught = c ?? new List<Course>();
     }
 
-        public void CreateCourse(){
+        public void CreateCourse(List<Course> availableCourses){
 
             Console.WriteLine("Whats the name of the course that you want to add: ");
             string name = Console.ReadLine();
@@ -22,6 +22,7 @@ public class Professor : User {
             Course newCourse = new Course(name, code, this);
 
         if(!_coursesTaught.Contains(newCourse)){
+            availableCourses.Add(newCourse);
             _coursesTaught.Add(newCourse);
         }
         else
@@ -77,44 +78,44 @@ public void ViewCursesTaught(){
         Console.WriteLine($"{course.GetCourseName()}");
     }
 }
-public void AddStudentToClass(){
+// public void AddStudentToClass(){
 
-    Console.WriteLine("Choose the class that you want to add a student");
+//     Console.WriteLine("Choose the class that you want to add a student");
 
-    for(int i = 0; i<_coursesTaught.Count;i++)
-    {
-        Console.WriteLine($"{i+1} {_coursesTaught[i]}");
-    }
-    string input = Console.ReadLine();
+//     for(int i = 0; i<_coursesTaught.Count;i++)
+//     {
+//         Console.WriteLine($"{i+1} {_coursesTaught[i]}");
+//     }
+//     string input = Console.ReadLine();
 
-    if(int.TryParse(input, out int CourseIndex) && CourseIndex > 0 && CourseIndex <= _coursesTaught.Count)
-    {
-        Course selectedCourse = _coursesTaught[CourseIndex - 1];
+//     if(int.TryParse(input, out int CourseIndex) && CourseIndex > 0 && CourseIndex <= _coursesTaught.Count)
+//     {
+//         Course selectedCourse = _coursesTaught[CourseIndex - 1];
 
-        Console.WriteLine("What is the code of the student that you want to add to your class");
-        String studentID = Console.ReadLine();
-        Student student = Student.FindStudentByID(studentID); 
+//         Console.WriteLine("What is the code of the student that you want to add to your class");
+//         String studentID = Console.ReadLine();
+//         Student student = Student.FindStudentByID(studentID); 
 
 
-        if(student != null){
-        selectedCourse.AddStudent(student);
-        Console.WriteLine($"Student {student.GetName()} was added to the class {selectedCourse.GetCourseName()}");
-        }
-        else {
-            Console.WriteLine("Student not found");
-        }
-    } else {
-        Console.WriteLine("Course not found");
-    }
+//         if(student != null){
+//         selectedCourse.AddStudent(student);
+//         Console.WriteLine($"Student {student.GetName()} was added to the class {selectedCourse.GetCourseName()}");
+//         }
+//         else {
+//             Console.WriteLine("Student not found");
+//         }
+//     } else {
+//         Console.WriteLine("Course not found");
+//     }
 
-}
+// }
 
 public void ViewStudentsInCourse(){
      Console.WriteLine("Choose the class that you want to see the list of students");
 
     for(int i = 0; i<_coursesTaught.Count;i++)
     {
-        Console.WriteLine($"{i+1} {_coursesTaught[i]}");
+        Console.WriteLine($"{i+1} {_coursesTaught[i].GetCourseName()} ({_coursesTaught[i].GetCourseCode()})");
     }
     string input = Console.ReadLine();
 

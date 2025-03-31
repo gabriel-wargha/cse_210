@@ -13,6 +13,12 @@ public class Course {
     }
     public void AddStudent(Student s){
 
+        if(!s.GetCourses().Contains(this)){
+            s.ForceAddCourse(this);
+            s.InitializeGrade(this);
+
+        }
+
         if (!_studentsEnrolled.Contains(s)){
             _studentsEnrolled.Add(s);;
             Console.WriteLine($"Student {s.GetName()} has been enrolled in {GetCourseName()}");

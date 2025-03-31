@@ -16,7 +16,7 @@ public class Professor : User {
 
             Console.WriteLine("Whats the name of the course that you want to add: ");
             string name = Console.ReadLine();
-            Console.WriteLine("What is the course code of the new Course: ")
+            Console.WriteLine("What is the course code of the new Course: ");
             string code = Console.ReadLine();
 
             Course newCourse = new Course(name, code, this);
@@ -71,6 +71,7 @@ public class Professor : User {
 }
 
 public void ViewCursesTaught(){
+    Console.WriteLine("");
     foreach(Course course in _coursesTaught)
     {
         Console.WriteLine($"{course.GetCourseName()}");

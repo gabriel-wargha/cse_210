@@ -7,7 +7,8 @@ public class ProfessorMenu {
         Console.WriteLine("2.Add a student to your class");
         Console.WriteLine("3. View List of students in the course");
         Console.WriteLine("4. Grade student");
-        Console.WriteLine("5. Exit");
+        Console.WriteLine("5. Create Course");
+        Console.WriteLine("6. Exit");
 
         
         string Choice = Console.ReadLine();
@@ -30,6 +31,11 @@ public class ProfessorMenu {
             
             break;
             case "5":
+            professor.CreateCourse();
+            
+            break;
+
+            case "6":
             Console.WriteLine("Goodbye!");
             return;
             

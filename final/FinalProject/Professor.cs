@@ -12,8 +12,14 @@ public class Professor : User {
         _coursesTaught = c ?? new List<Course>();
     }
 
-        public void CreateCourse(string courseName, string courseID){
-        Course newCourse = new Course(courseName, courseID, this);
+        public void CreateCourse(){
+
+            Console.WriteLine("Whats the name of the course that you want to add: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("What is the course code of the new Course: ")
+            string code = Console.ReadLine();
+
+            Course newCourse = new Course(name, code, this);
 
         if(!_coursesTaught.Contains(newCourse)){
             _coursesTaught.Add(newCourse);

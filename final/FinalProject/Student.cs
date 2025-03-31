@@ -44,7 +44,9 @@ public class Student : User {
 
         Console.WriteLine("Available Courses: ");
         for(int i = 0; i<availableCourses.Count;i++){
-            Console.WriteLine($"{i + 1}. {availableCourses[i].GetCourseName()}");
+            Console.WriteLine($"{i + 1}");
+            availableCourses[i].DisplayInfo(availableCourses[i]);
+            Console.WriteLine("");
         }
 
         Console.WriteLine("Choose the Course that you want to enroll in: ");
@@ -102,7 +104,7 @@ public void ViewCourses() {
 
         foreach(Course course in _enrolledCourses)
         {
-            Console.WriteLine($"{course.GetCourseName()}");
+            course.DisplayInfo(course);
         }
     }
 

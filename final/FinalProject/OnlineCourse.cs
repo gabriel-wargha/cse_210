@@ -8,7 +8,7 @@ public class OnlineCourse : Course {
     }
 
     public override void DisplayInfo(Course c){
-        Console.WriteLine($"Welcome to the course {c.GetCourseName()}");
+        Console.WriteLine($" Course {c.GetCourseName()}");
         Console.WriteLine($"You can watch the class using {_platform} and the link is:  {_meetingLink}");
     }
 }

@@ -115,8 +115,9 @@ public class Program {
         Professor professor = professors.FirstOrDefault(p => p.GetProfessorID() == id);
 
         if(professor != null && professor.GetPassword() == password){
+            Console.Clear();
             Console.WriteLine($"Welcome Professor {professor.GetName()}");
-           ProfessorMenu.ShowProfessorMenu(professor, availableCourses);
+            ProfessorMenu.ShowProfessorMenu(professor, availableCourses);
             return;
         }
         else {
@@ -125,7 +126,6 @@ public class Program {
         }
         Console.WriteLine("Too many failed attempts. Exiting...");
         }
-        Console.Clear();
     }
 
     public static void loginAsStudent(){
@@ -144,8 +144,9 @@ public class Program {
         Console.WriteLine(student.GetPassword());
 
         if(student != null && student.GetPassword() == password){
+            Console.Clear();
             Console.WriteLine($"Welcome student {student.GetName()}");
-           StudentMenu.ShowStudentMenu(student, availableCourses);
+            StudentMenu.ShowStudentMenu(student, availableCourses);
             return;
         }
         else {
@@ -154,7 +155,6 @@ public class Program {
         }
         Console.WriteLine("Too many failed attempts. Exiting...");
         }
-        Console.Clear();
 
     }
 

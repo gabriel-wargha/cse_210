@@ -8,7 +8,7 @@ public class InPersonCourse : Course {
     }
 
     public override void DisplayInfo(Course c){
-        Console.WriteLine($"Welcome to the course {c.GetCourseName()}");
+        Console.WriteLine($"Course {c.GetCourseName()}");
         Console.WriteLine($"Your class is in {_buildingName} room number {_roomNumber}");
     }
 
